@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Mediatr_App.Notification
 {
+    //This is the Handler for the Messages
     public class Notifier2 : INotificationHandler<NotificationMessage>
     {
         public Task Handle(NotificationMessage notification, CancellationToken cancellationToken)

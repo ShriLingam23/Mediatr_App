@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using MediatR;
+using Mediatr_App.Notification.NotificationService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -27,8 +28,13 @@ namespace Mediatr_App
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             //MediatR finds all handlers within the assembly and registers them correctly.
+            //This is what register which handler handels which Message object
             services.AddMediatR(Assembly.GetExecutingAssembly());
+
+            //Register Mediator service
+            services.AddTransient<INotifierMediatorService, NotifierMediatorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
