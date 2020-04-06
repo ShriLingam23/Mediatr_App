@@ -27,6 +27,7 @@ namespace Mediatr_App
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            //MediatR finds all handlers within the assembly and registers them correctly.
             services.AddMediatR(Assembly.GetExecutingAssembly());
         }
 
